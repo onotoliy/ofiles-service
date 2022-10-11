@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "ofiles.directory",
+      "type": "java.lang.String",
+      "description": "Директория в которую будут сохраняться файлы."
+    }
+  ]
+}

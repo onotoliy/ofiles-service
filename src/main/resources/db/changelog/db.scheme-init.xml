@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+      http://www.liquibase.org/xml/ns/pro
+      http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.3.xsd">
+
+<changeSet id="25-08-2022-1" author="a.pokhresniy">
+        <createTable tableName="ofiles_info" remarks="">
+            <column name="uid" type="uuid" remarks="Уникальный идентификатор">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar" remarks=""/>
+            <column name="author" type="uuid" remarks=""/>
+            <column name="creation_date" type="datetime" remarks=""/>
+            <column name="deletion_date" type="datetime" remarks=""/>
+            <column name="original_name" type="varchar" remarks=""/>
+            <column name="content_type" type="varchar" remarks=""/>
+            <column name="extension" type="varchar" remarks=""/>
+            <column name="size" type="bigint" remarks=""/>
+            <column name="account" type="uuid" remarks=""/>
+            <column name="description" type="varchar" remarks=""/>
+        </createTable>
+
+        <createTable tableName="ofiles_parameters">
+            <column name="uid" type="uuid" remarks="">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="info_uid" type="uuid" remarks="">
+                <constraints foreignKeyName="ofiles_info_parameters"
+                             referencedTableName="ofiles_info"
+                             referencedColumnNames="uid"
+                             nullable="false"/>
+            </column>
+            <column name="name" type="varchar" remarks=""/>
+            <column name="value" type="varchar" remarks=""/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
